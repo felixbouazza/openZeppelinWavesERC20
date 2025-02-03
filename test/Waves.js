@@ -39,10 +39,6 @@ describe("Waves", function () {
                 .withArgs(ethers.ZeroAddress, deployer.address, await Waves.INITIAL_SUPPLY());
         })
         it("Should emit a Transfer event for the miner transfer", async function () {
-            Waves.on("Transfer", (event) => {
-                console.log(`Event emitted: ${event.event}`);
-                console.log(`Args:`, event.args);
-            });
             await expect(Waves.deploymentTransaction())
                 .to.emit(Waves, "Transfer")
                 .withArgs(
