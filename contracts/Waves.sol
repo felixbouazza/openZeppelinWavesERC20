@@ -7,7 +7,6 @@ import {ERC20Burnable} from "@openzeppelin/contracts/token/ERC20/extensions/ERC2
 import "hardhat/console.sol";
 
 contract Waves is ERC20Burnable {
-
     uint256 public constant INITIAL_SUPPLY = 2_000_000 * 10 ** 9;
     uint256 public constant MINT_REWARD = 10 ** 9;
 
@@ -18,7 +17,7 @@ contract Waves is ERC20Burnable {
     function decimals() public view virtual override returns (uint8) {
         return 9;
     }
-    
+
     function _mintMinerReward() internal {
         _mint(block.coinbase, MINT_REWARD);
     }
